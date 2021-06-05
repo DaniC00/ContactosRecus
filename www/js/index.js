@@ -19,11 +19,35 @@
 
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
+console.log("test");
 document.addEventListener('deviceready', onDeviceReady, false);
 
+var contactos;
+
+
 function onDeviceReady() {
-    // Cordova is now initialized. Have fun!
+
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    document.getElementById('deviceready').classList.add('ready');
+
+    //document.getElementById('deviceready').classList.add('ready');
+
+    if(JSON.parse(localStorage.getItem("contactos"))==undefined){
+
+    	console.log("contactos es undefined.");
+
+    	//si contactos no existe creamos el json vacio y lo guardamos en localstorage
+    	contactos = {
+    	};
+
+    	localStorage.setItem("contactos", JSON.stringify(contactos));
+    } else {
+
+    	console.log("contactos no es undefined");
+    	
+    	//si existe lo recogemos en la variable contactos
+    	contactos = JSON.parse(localStorage.getItem("contactos"));
+
+    }
+
 }
