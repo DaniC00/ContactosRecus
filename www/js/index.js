@@ -38,16 +38,30 @@ function onDeviceReady() {
 
     	//si contactos no existe creamos el json vacio y lo guardamos en localstorage
     	contactos = {
+    		"test1" : "test1",
+    		"test2" : "test2",
     	};
 
     	localStorage.setItem("contactos", JSON.stringify(contactos));
     } else {
 
     	console.log("contactos no es undefined");
-    	
+
     	//si existe lo recogemos en la variable contactos
     	contactos = JSON.parse(localStorage.getItem("contactos"));
-
     }
+
+    addContactos();
+
+}
+
+function addContactos(){
+
+	console.log("dentro de addContactos")
+
+	for(x in contactos){
+		console.log("añadiendo contacto..")
+		$('#listaContactos').append('<li class="collection-item"><div>'+contactos[x]+'<a href="#!" class="secondary-content"><i class="material-icons">send</i></a> <a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>');
+	}
 
 }
