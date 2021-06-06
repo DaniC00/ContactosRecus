@@ -19,12 +19,12 @@
 
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
-console.log("test");
 document.addEventListener('deviceready', onDeviceReady, false);
 
 var contactos;
+var editNumber;
 
-$(document).on('click','.probando123',function(){
+$(document).on('click','.deleteButton',function(){
 
 	//recoge el valor de el atributo phoneNumber que se le asigna al list item cuando se crea (es el numero de telefono)
 	let x = $(this).parent().parent().attr("phoneNumber");
@@ -37,6 +37,15 @@ $(document).on('click','.probando123',function(){
 
 	//se borra el list item
 	$(this).parent().parent().remove();
+
+});
+
+$(document).on('click','.editButton',function(){
+
+	editNumber = null;
+	editNumber = $(this).parent().parent().attr("phoneNumber");
+
+    window.location.href = "editContacto.html?Number="+editNumber;
 
 });
 
@@ -79,7 +88,7 @@ function addContactos(){
 
 	for(x in contactos){
 		console.log("añadiendo contacto ")
-		$('#listaContactos').append('<li class="collection-item" phoneNumber="'+x+'"><div>'+contactos[x]["first_name"]+' '+contactos[x]["last_name"]+'<a href="#" class="secondary-content probando123"><i class="material-icons">delete_forever</i></a> <a href="#!" class="secondary-content"><i class="material-icons">edit</i></a></div></li>');
+		$('#listaContactos').append('<li class="collection-item" phoneNumber="'+x+'"><div>'+contactos[x]["first_name"]+' '+contactos[x]["last_name"]+'<a href="#" class="secondary-content deleteButton"><i class="material-icons">delete_forever</i></a> <a href="#!" class="secondary-content editButton"><i class="material-icons">edit</i></a></div></li>');
 	}
 
 }
