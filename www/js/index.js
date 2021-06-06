@@ -24,6 +24,21 @@ document.addEventListener('deviceready', onDeviceReady, false);
 
 var contactos;
 
+$(document).on('click','.probando123',function(){
+
+	//recoge el valor de el atributo phoneNumber que se le asigna al list item cuando se crea (es el numero de telefono)
+	let x = $(this).parent().parent().attr("phoneNumber");
+
+	//se borra del json del local storage
+	delete contactos[x];
+
+	//se vuelve a subir al local storage
+	localStorage.setItem("contactos", JSON.stringify(contactos));
+
+	//se borra el list item
+	$(this).parent().parent().remove();
+
+});
 
 function onDeviceReady() {
 
@@ -38,8 +53,10 @@ function onDeviceReady() {
 
     	//si contactos no existe creamos el json vacio y lo guardamos en localstorage
     	contactos = {
-    		"test1" : "test1",
-    		"test2" : "test2",
+    		"931111111" : {
+    			"first_name" : "contacto",
+    			"last_name" : "de ejemplo"
+    		}
     	};
 
     	localStorage.setItem("contactos", JSON.stringify(contactos));
@@ -55,13 +72,15 @@ function onDeviceReady() {
 
 }
 
+
 function addContactos(){
 
 	console.log("dentro de addContactos")
 
 	for(x in contactos){
-		console.log("añadiendo contacto..")
-		$('#listaContactos').append('<li class="collection-item"><div>'+contactos[x]+'<a href="#!" class="secondary-content"><i class="material-icons">send</i></a> <a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>');
+		console.log("añadiendo contacto ")
+		$('#listaContactos').append('<li class="collection-item" phoneNumber="'+x+'"><div>'+contactos[x]["first_name"]+' '+contactos[x]["last_name"]+'<a href="#" class="secondary-content probando123"><i class="material-icons">delete_forever</i></a> <a href="#!" class="secondary-content"><i class="material-icons">edit</i></a></div></li>');
 	}
 
 }
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Starter Template - Materialize</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="container">
+      <!-- <a id="logo-container" href="#" class="brand-logo left">NUEVO</a> -->
+      <ul>
+        <li><a class="brand-logo left" href="index.html">CONTACTOS</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <br><br>
+
+  <div class="container">
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="Número de telefono" id="phone_number" type="text" class="validate">
+                <label for="first_name">Número de telefono</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="Nombre" id="first_name" type="text" class="validate">
+                <label for="first_name">Nombre</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input placeholder="Apellidos" id="last_name" type="text" class="validate">
+                <label for="first_name">Apellidos</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s2 right-align" style="width: 100%">
+                <a class="waves-effect waves-light btn" onclick="addNewContact()">Añadir</a>
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="cordova.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/newContacto.js"></script>
+
+
+  </body>
+</html>
