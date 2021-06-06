@@ -88,7 +88,7 @@ function addContactos(){
 
 	for(x in contactos){
 		console.log("añadiendo contacto ")
-		$('#listaContactos').append('<li class="collection-item" phoneNumber="'+x+'"><div>'+contactos[x]["first_name"]+' '+contactos[x]["last_name"]+'<a href="#" class="secondary-content deleteButton"><i class="material-icons">delete_forever</i></a> <a href="#!" class="secondary-content editButton"><i class="material-icons">edit</i></a></div></li>');
+		$('#listaContactos').append('<li class="collection-item" phoneNumber="'+x+'"><div>'+contactos[x]["first_name"]+' - '+x+'<a href="#" class="secondary-content deleteButton"><i class="material-icons">delete_forever</i></a> <a href="#!" class="secondary-content editButton"><i class="material-icons">edit</i></a></div></li>');
 	}
 
 }
